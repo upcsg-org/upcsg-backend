@@ -1,6 +1,9 @@
 # Dockerfile
 FROM python:3.12.0
 
+# Install netcat (netcat-openbsd version)
+RUN apt-get update && apt-get install -y netcat-openbsd
+
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
