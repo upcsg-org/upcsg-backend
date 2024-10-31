@@ -22,6 +22,7 @@ include/
 *.egg-info/
 dist/
 build/
+.python-version
 
 # Django specific stuff:
 *.log

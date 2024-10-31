@@ -12,7 +12,7 @@ def install_dependencies():
 def set_environment_variables():
     """Set up environment variables required for Django."""
     print("Setting environment variables...")
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'your_project_name.settings'
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'main.settings'
     os.environ['PYTHONPATH'] = os.getcwd()
 
 def run_migrations():
