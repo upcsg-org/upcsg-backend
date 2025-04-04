@@ -4,15 +4,12 @@ from merch.models import Merch
 
 class Order(models.Model):
     class PaymentMethod(models.TextChoices):
-        CASH = 'cash'
-        CREDIT_CARD = 'credit_card'
-        PAYPAL = 'paypal'
+        GCASH = 'gcash'
         BANK_TRANSFER = 'bank_transfer'
 
     class OrderStatus(models.TextChoices):
         PENDING = 'pending'
         PAID = 'paid'
-        SHIPPED = 'shipped'
         DELIVERED = 'delivered'
         CANCELLED = 'cancelled'
 
