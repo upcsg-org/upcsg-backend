@@ -1,9 +1,14 @@
-Django==5.1.0
+asgiref==3.8.1
+dj-database-url==1.2.0
+dj-rest-auth==7.0.1
+Django==5.1
+django-allauth==65.7.0
 djangorestframework==3.15.0
-psycopg2-binary==2.9.7  # If you're using PostgreSQL
-pytz==2023.3  # Timezone utilities
-gunicorn==21.2.0  # WSGI HTTP server, useful for deployment
-asgiref>=3.8.1,<4.0  # Compatible ASGI server reference for Django 5.1
-whitenoise==6.5.0  # For serving static files in production
-dj-database-url==1.2.0  # For parsing database URLs from environment variables
+gunicorn==21.2.0
+packaging==24.2
+psycopg2-binary==2.9.7
 python-dotenv==1.0.1
+pytz==2023.3
+rest-framework-simplejwt==0.0.2
+sqlparse==0.5.3
+whitenoise==6.5.0
