@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
     # Local Apps
     'user',
+    'cms',
 ]
 
 # Site ID required for django-allauth
