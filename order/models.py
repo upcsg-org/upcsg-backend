@@ -8,7 +8,6 @@ class Order(models.Model):
         CREDIT_CARD = 'credit_card'
         PAYPAL = 'paypal'
         BANK_TRANSFER = 'bank_transfer'
-        BANK_TRANSFER = 'bank_transfer'
 
     class OrderStatus(models.TextChoices):
         PENDING = 'pending'
