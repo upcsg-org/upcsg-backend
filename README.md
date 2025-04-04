@@ -1,1 +1,3 @@
-# UPCSG Backend Service
+# UPCSG Backend
+
+Python version: 3.12.0
