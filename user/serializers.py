@@ -1,14 +1,20 @@
 from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
+from dj_rest_auth.serializers import LoginSerializer
 from django.core.exceptions import ValidationError
 from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True, required=False, allow_blank=True)
     class Meta:
         model = User
-        fields = "__all__"
-class CustomRegisterSerializer(RegisterSerializer):
+        exclude = ["user_permissions", "groups"]
+        
+class LoginSerializer(LoginSerializer):
+    email = serializers.EmailField()
+    password = serializers.CharField()
+    
+class RegisterSerializer(RegisterSerializer):
     # Make username optional and allow it to be blank
     username = serializers.CharField(required=False, allow_blank=True, max_length=150)
     email = serializers.EmailField(required=True)
