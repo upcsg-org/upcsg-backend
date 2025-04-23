@@ -74,7 +74,7 @@ This document outlines the authentication endpoints available in the User app.
 - **Request Body:** 
   ```json
   {
-    "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI..."
+    "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI..."
   }
   ```
 - **Response Body:**
