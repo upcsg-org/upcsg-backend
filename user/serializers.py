@@ -4,13 +4,10 @@ from django.core.exceptions import ValidationError
 from .models import User
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
     class Meta:
         model = User
         fields = "__all__"
-        extra_kwargs = {
-            'password': {'write_only': True}
-        }
-
 class CustomRegisterSerializer(RegisterSerializer):
     # Make username optional and allow it to be blank
     username = serializers.CharField(required=False, allow_blank=True, max_length=150)

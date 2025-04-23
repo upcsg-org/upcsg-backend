@@ -7,10 +7,8 @@ class OrderView(GenericView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer 
     permission_classes = [IsAuthenticated]
-    cache_key_prefix = "order"
 
 class OrderItemView(GenericView):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
     permission_classes = [IsAuthenticated]
-    cache_key_prefix = "order_item"
