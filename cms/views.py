@@ -55,4 +55,5 @@ class ManageAnnouncementView(GenericView):
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
     permission_classes = [IsAdminUser]
-    cache_key_prefix = "manage-announcement"
+    allowed_methods = ["create", "update", "destroy"]
+
