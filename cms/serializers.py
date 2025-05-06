@@ -23,6 +23,22 @@ class EventSerializer(serializers.ModelSerializer):
             event = Event.objects.create(**validated_data)
             
         return event
+    
+    def update(self, instance, validated_data):
+        article_data = validated_data.pop('article', None)
+
+        # Update the Event instance
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        # Manually update nested article
+        if article_data and instance.article:
+            for attr, value in article_data.items():
+                setattr(instance.article, attr, value)
+            instance.article.save()
+
+        return instance
 
 class ScholarshipSerializer(serializers.ModelSerializer):
     article = ArticleSerializer(required=False, allow_null=True)
