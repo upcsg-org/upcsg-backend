@@ -27,16 +27,28 @@ class EventSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         article_data = validated_data.pop('article', None)
 
-        # Update the Event instance
+        # Update event fields
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
 
-        # Manually update nested article
-        if article_data and instance.article:
+        # If article_data is None, remove the article
+        if article_data is None and instance.article:
+            instance.article.delete()
+            instance.article = None
+            instance.save()
+
+        # If article_data exists and article exists, update it
+        elif article_data and instance.article:
             for attr, value in article_data.items():
                 setattr(instance.article, attr, value)
             instance.article.save()
+
+        # If article_data exists and no article exists, create it
+        elif article_data and not instance.article:
+            article = Article.objects.create(**article_data)
+            instance.article = article
+            instance.save()
 
         return instance
 
@@ -61,14 +73,28 @@ class ScholarshipSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         article_data = validated_data.pop('article', None)
 
+        # Update event fields
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
 
-        if article_data and instance.article:
+        # If article_data is None, remove the article
+        if article_data is None and instance.article:
+            instance.article.delete()
+            instance.article = None
+            instance.save()
+
+        # If article_data exists and article exists, update it
+        elif article_data and instance.article:
             for attr, value in article_data.items():
                 setattr(instance.article, attr, value)
             instance.article.save()
+
+        # If article_data exists and no article exists, create it
+        elif article_data and not instance.article:
+            article = Article.objects.create(**article_data)
+            instance.article = article
+            instance.save()
 
         return instance
 
@@ -93,14 +119,28 @@ class InternshipSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         article_data = validated_data.pop('article', None)
 
+        # Update event fields
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
 
-        if article_data and instance.article:
+        # If article_data is None, remove the article
+        if article_data is None and instance.article:
+            instance.article.delete()
+            instance.article = None
+            instance.save()
+
+        # If article_data exists and article exists, update it
+        elif article_data and instance.article:
             for attr, value in article_data.items():
                 setattr(instance.article, attr, value)
             instance.article.save()
+
+        # If article_data exists and no article exists, create it
+        elif article_data and not instance.article:
+            article = Article.objects.create(**article_data)
+            instance.article = article
+            instance.save()
 
         return instance
 
@@ -125,13 +165,27 @@ class AnnouncementSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         article_data = validated_data.pop('article', None)
 
+        # Update event fields
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
 
-        if article_data and instance.article:
+        # If article_data is None, remove the article
+        if article_data is None and instance.article:
+            instance.article.delete()
+            instance.article = None
+            instance.save()
+
+        # If article_data exists and article exists, update it
+        elif article_data and instance.article:
             for attr, value in article_data.items():
                 setattr(instance.article, attr, value)
             instance.article.save()
+
+        # If article_data exists and no article exists, create it
+        elif article_data and not instance.article:
+            article = Article.objects.create(**article_data)
+            instance.article = article
+            instance.save()
 
         return instance
