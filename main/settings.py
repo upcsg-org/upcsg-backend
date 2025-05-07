@@ -239,8 +239,13 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 
 # Email Configuration
-EMAIL_BACKEND = (
-    "django.core.mail.backends.console.EmailBackend"
-    if DEBUG
-    else "django.core.mail.backends.smtp.EmailBackend"
-)
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+# Gmail SMTP Settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'miraimaxell@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'rurbdeiurzaicige')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'miraimaxell@gmail.com')
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'milaymaxell@gmail.com')
