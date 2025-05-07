@@ -15,6 +15,7 @@ class Event(models.Model):
     image_url = models.URLField(null=True, blank=True)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateField(null=True, blank=True)
+    location = models.CharField(max_length=255, null=True, blank=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True)
     external_url = models.URLField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
