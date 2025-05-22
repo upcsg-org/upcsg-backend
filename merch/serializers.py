@@ -19,6 +19,8 @@ MerchSizeSerializer.merch_type_id = serializers.PrimaryKeyRelatedField(
     queryset=MerchType.objects.all(), source='merch_type', write_only=True
 )
 
+
+
 class MerchSerializer(serializers.ModelSerializer):
     merch_type = MerchTypeSerializer(read_only=True)
     merch_type_id = serializers.PrimaryKeyRelatedField(
@@ -27,11 +29,13 @@ class MerchSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Merch
-        fields = ['id', 'name', 'description','image','merch_type', 'merch_type_id', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'description','image', 'merch_type', 'merch_type_id', 'created_at', 'updated_at']
+        
+
 
 
 class MerchVariantSerializer(serializers.ModelSerializer):
-    merch = MerchSerializer(read_only=True)
+    merch = MerchSerializer(read_only=True)  # safe now, MerchSerializer already defined
     merch_id = serializers.PrimaryKeyRelatedField(
         queryset=Merch.objects.all(), source='merch', write_only=True
     )
@@ -48,6 +52,7 @@ class MerchVariantSerializer(serializers.ModelSerializer):
             'is_available', 'is_limited', 'on_sale', 'quantity',
             'merch', 'merch_id', 'size', 'size_id', 'created_at', 'updated_at'
         ]
+
 
 
 class BundleSerializer(serializers.ModelSerializer):
