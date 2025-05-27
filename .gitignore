@@ -98,3 +98,10 @@ yarn-error.log
 
 # Python
 .python-version
+
+# Keys
+upcsg-key.pub
+upcsg-key
+
+# Terraform
+terraform.tfvars
