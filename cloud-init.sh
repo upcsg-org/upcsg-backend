@@ -2,7 +2,7 @@
 set -e
 
 # Set your domain here
-DOMAIN="api.gala.com"
+DOMAIN="csg.maxellmilay.com"
 
 # Log function for better debugging
 log() {
