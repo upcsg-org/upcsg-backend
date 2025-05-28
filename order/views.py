@@ -14,6 +14,9 @@ class OrderView(GenericView):
         filter_q = Q(**filters)
         exclude_q = Q(**excludes)
         return self.queryset.filter(filter_q).exclude(exclude_q).filter(buyer=self.request.user)
+    
+    def pre_create(self, request):
+        request.data['buyer_id'] = self.request.user.id
 
 class OrderItemView(GenericView):
     queryset = OrderItem.objects.all()

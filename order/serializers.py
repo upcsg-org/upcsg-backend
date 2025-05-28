@@ -6,6 +6,9 @@ from user.models import User
 from merch.models import MerchVariant
 
 class OrderSerializer(serializers.ModelSerializer):
+    buyer_id = serializers.PrimaryKeyRelatedField(
+        queryset=User.objects.all(), source='buyer', write_only=True
+    )
     buyer = UserSerializer(read_only=True)
     class Meta:
         model = Order
