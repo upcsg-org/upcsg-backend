@@ -29,6 +29,12 @@ class ManageOrderView(GenericView):
     serializer_class = OrderSerializer
     permission_classes = [IsAdminUser]
     
+    def pre_create(self, request):
+        request.data['buyer_id'] = self.request.user.id
+        
+    def pre_update(self, request, instance):
+        request.data['buyer_id'] = self.request.user.id
+    
 class ManageOrderItemView(GenericView):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
