@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'order',
     'merch',
     'help',
+    'officers'
 ]
 
 # Site ID required for django-allauth
