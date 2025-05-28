@@ -98,6 +98,13 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': dj_database_url.parse(
+#         os.getenv('SUPABASE_DB_CONNECTION_STRING'),
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#     )
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -165,6 +172,7 @@ REST_AUTH = {
     "JWT_AUTH_SAMESITE": "Lax",
     "USER_DETAILS_SERIALIZER": "user.serializers.UserSerializer",
     "LOGIN_SERIALIZER": "user.serializers.LoginSerializer",
+    "REGISTER_SERIALIZER": "user.serializers.CustomRegisterSerializer",
     "SESSION_LOGIN": False,
     "TOKEN_MODEL": None,
     "PASSWORD_RESET_USE_SITES_DOMAIN": False,
@@ -208,6 +216,10 @@ ACCOUNT_EMAIL_SUBJECT_PREFIX = ""
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = "http"
 ACCOUNT_ALLOW_REGISTRATION = True
 ACCOUNT_PASSWORD_RESET_TIMEOUT = 3600  # 1 hour
+
+# Disable password validation in allauth (override deprecated setting)
+# Note: ACCOUNT_PASSWORD_MIN_LENGTH is deprecated but some versions still enforce it
+ACCOUNT_PASSWORD_MIN_LENGTH = 1  # Set to 1 to allow very short passwords
 
 # JWT Settings
 SIMPLE_JWT = {

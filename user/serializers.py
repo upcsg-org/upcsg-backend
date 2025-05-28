@@ -9,6 +9,17 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ["user_permissions", "groups"]
+
+class CustomRegisterSerializer(RegisterSerializer):
+    """Custom registration serializer that disables password validation."""
+    
+    def validate_password1(self, password):
+        """Override to remove password validation."""
+        return password
+    
+    def validate_password2(self, password):
+        """Override to remove password validation."""
+        return password
         
 class LoginSerializer(LoginSerializer):
     username = serializers.CharField()
