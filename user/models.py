@@ -5,7 +5,7 @@ class User(AbstractUser):
     """Custom user model with additional fields."""
 
     username = models.CharField(max_length=30, unique=True)
-    email = models.EmailField(unique=False, blank=True, null=True)
+    email = models.EmailField(unique=True, blank=True, null=True) # email is unique and optional
     image_url = models.URLField(max_length=10000, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     phone_number = models.CharField(max_length=20, blank=True, null=True)

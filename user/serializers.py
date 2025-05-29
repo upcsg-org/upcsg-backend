@@ -13,6 +13,11 @@ class UserSerializer(serializers.ModelSerializer):
 class CustomRegisterSerializer(RegisterSerializer):
     """Custom registration serializer that disables password validation."""
     
+    def validate_email(self, email):
+        if User.objects.filter(email__iexact=email).exists():
+            raise serializers.ValidationError("A user with that email already exists.")
+        return email
+    
     def validate_password1(self, password):
         """Override to remove password validation."""
         return password
