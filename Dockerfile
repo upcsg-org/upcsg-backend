@@ -24,12 +24,6 @@ RUN mkdir -p staticfiles
 # Create static files directory and set permissions
 RUN mkdir -p /app/staticfiles && chmod -R 755 /app/staticfiles
 
-# Make scripts executable
-RUN chmod +x scripts/*
-
-# Run bootstrap script (excluding pre-commit steps which aren't needed in container)
-RUN python scripts/bootstrap.py
-
 # Collect static files
 RUN python manage.py collectstatic --noinput
 

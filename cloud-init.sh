@@ -51,7 +51,7 @@ attempt=0
 while [ $attempt -lt $max_attempts ]; do
   attempt=$((attempt+1))
   log "ECR login attempt $attempt of $max_attempts"
-#   if aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 943138167653.dkr.ecr.us-east-1.amazonaws.com; then
+  if aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 475828135326.dkr.ecr.us-east-1.amazonaws.com; then
     log "ECR authentication successful"
     break
   else
@@ -71,7 +71,7 @@ attempt=0
 while [ $attempt -lt $max_attempts ]; do
   attempt=$((attempt+1))
   log "Docker pull attempt $attempt of $max_attempts"
-#   if docker pull 943138167653.dkr.ecr.us-east-1.amazonaws.com/call-center-ai-backend:latest; then
+  if docker pull 475828135326.dkr.ecr.us-east-1.amazonaws.com/upcsg-backend:latest; then
     log "Docker image pull successful"
     break
   else
@@ -86,7 +86,7 @@ done
 
 # Run the Docker image, exposing the app on 127.0.0.1:8080
 log "Running Docker container"
-# docker run -d -p 8080:8080 --restart always 943138167653.dkr.ecr.us-east-1.amazonaws.com/call-center-ai-backend:latest || log "Failed to run Docker container, but continuing"
+docker run -d -p 8080:8080 --restart always 475828135326.dkr.ecr.us-east-1.amazonaws.com/upcsg-backend:latest || log "Failed to run Docker container, but continuing"
 
 # Wait for container to be fully running
 log "Waiting for Docker container to start"
@@ -94,11 +94,11 @@ sleep 5
 
 # Check if Docker container is running
 log "Checking Docker container status"
-if docker ps | grep call-center-ai-backend; then
+if docker ps | grep upcsg-backend; then
   log "Docker container is running"
 else
   log "Docker container is not running, attempting to start again"
-#   docker run -d -p 8080:8080 --restart always 943138167653.dkr.ecr.us-east-1.amazonaws.com/call-center-ai-backend:latest
+  docker run -d -p 8080:8080 --restart always 475828135326.dkr.ecr.us-east-1.amazonaws.com/upcsg-backend:latest
 fi
 
 # Test if the local Docker container is accessible

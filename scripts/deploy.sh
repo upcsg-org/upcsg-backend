@@ -2,11 +2,11 @@
 set -e # Exit immediately if a command exits with a non-zero status.
 
 # --- Configuration ---
-INSTANCE_DNS="3.85.27.89"      # <<< REPLACE WITH YOUR ACTUAL EC2 INSTANCE PUBLIC IP ADDRESS
+INSTANCE_DNS="44.204.122.186"      # <<< REPLACE WITH YOUR ACTUAL EC2 INSTANCE PUBLIC IP ADDRESS
 SSH_USER="ec2-user"                      # SSH username for the EC2 instance
-SSH_KEY_PATH="ccaia-key"              # Path to your private SSH key relative to this script
-ECR_REPO_URI="943138167653.dkr.ecr.us-east-1.amazonaws.com/call-center-ai-backend"
-CONTAINER_NAME="ccaia-backend-container"
+SSH_KEY_PATH="upcsg-key"              # Path to your private SSH key relative to this script
+ECR_REPO_URI="475828135326.dkr.ecr.us-east-1.amazonaws.com/upcsg-backend"
+CONTAINER_NAME="upcsg-backend"
 IMAGE_TAG="latest"
 AWS_REGION="us-east-1"
 # --- End Configuration ---
