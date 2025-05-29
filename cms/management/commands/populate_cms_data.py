@@ -166,25 +166,7 @@ class Command(BaseCommand):
 
                 UP created the Grants-in-Aid Program (GIAP) to reduce the cost paid by students during enrollment, based on the household's paying capacity to which a student belongs. Through the GIAP, UP may subsidize a portion of the full cost required during enrollment and, in some instances, grant additional subsidy to waive miscellaneous fees and grant monthly cash allowances.
 
-                The UP GIAP is open to undergraduate students, including students enrolled in Law and Medicine.
-
-                Tertiary Education Subsidy
-
-                The Tertiary Education Subsidy (TES) is a financial assistance program managed by the Unified Financial Assistance System for Tertiary Education (UniFAST).
-
-                The TES grants cash allowance for one academic year to undergraduate students from low-income households. To process applications to TES, Scholarship personnel use the information submitted by students in SLAS Online. The University endorses SLAS Online applicants who meet the TES requirements of UniFAST.
-
-                Donor-funded Scholarship Programs
-
-                Donor-funded Scholarship Programs are financial assistance programs funded by private individuals and other organizations. Different campuses of the University manage these programs.
-
-                Applicants to donor-funded scholarship programs must submit application forms to Scholarship and Financial Assistance units on their campus. To process applications, Scholarship personnel use the information submitted by students in SLAS Online. Slots are assigned to SLAS Online applicants that match the requirements provided in the donor-funded scholarship program guidelines.
-
-                Students can apply for financial assistance to Donor-funded Scholarship Programs through the Scholarship Offices in their respective campuses.
-
-                Student Assistant and Graduate Assistant (SAGA) Program
-
-The Student Assistant and Graduate Assistant (SAGA) Program provides undergraduate and postgraduate students the opportunity to work and earn on­campus while pursuing their studies in the University. Aside from the compensation, students under the SAGA Program are able to gain work experience that could help prepare them for employment, entrepreneurship, and community service after they leave the university. The University, on the other hand, is able to engage the students in fulfilling its academic and operational functions.""",
+                The UP GIAP is open to undergraduate students, including students enrolled in Law and Medicine.""",
                 'author': 'UPCSG'
             },
         ]
