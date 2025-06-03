@@ -30,8 +30,10 @@ RUN python manage.py collectstatic --noinput
 # Set the Python path to include the directory
 ENV PYTHONPATH=/app
 
+ENV NEW_RELIC_CONFIG_FILE=newrelic.ini
+
 # Expose the port
 EXPOSE 8080
 
 # Start Gunicorn server
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "main.wsgi:application", "--timeout", "120"]
+CMD ["newrelic-admin","run-program","gunicorn", "--bind", "0.0.0.0:8080", "main.wsgi:application", "--timeout", "120"]
